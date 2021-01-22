@@ -29,7 +29,8 @@ The projects of this course will be publish through github. So, you need to:
 
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
     
-    ![img01.png](img01.png)
+   
+    <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="100" height="190">
 
     Accept it and keep next to reach the project page.    
     ![img02](img02.png)
