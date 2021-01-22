@@ -1,7 +1,7 @@
 # CS503 XINU Projects Note
 
 ## XINU Lab
-The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. 
+The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, *xinu03...*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. 
 
 
 The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform* and it would be either accessed physicly or remotely via TLS/SSL applications such as **ssh** on Linux/MacOS/Windows or **PuTTY** for some early version Windows.  
@@ -30,7 +30,7 @@ The projects of this course will be publish through github. So, you need to:
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
     
    
-    <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="100" height="190">
+    <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="200" border="1px solid #d4d4d4">
 
     Accept it and keep next to reach the project page.    
     ![img02](img02.png)
