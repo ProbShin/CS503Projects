@@ -19,7 +19,7 @@ The projects of this course will be publish through github. So, you need to:
 1. Have a github account.
 2. Get familiar with some basic github operations. 
 
-    The basic github commands such as `git clone`, `git status`, `git add`, `git commit` and `git push` would be good enough. We will cover those basic operations below.
+    The basic github commands such as `git clone`, `git status`, `git add`, `git commit` and `git push` would be good enough. 
 
 
 
@@ -44,16 +44,16 @@ The projects of this course will be publish through github. So, you need to:
     1.3. As the image indicate, your project repo is under `https://github.com/rssteaching/<projectName>-<yourId>/`
 
 
-1. Work on the project. 
+2. Work on the project. 
     
     In case forget the project repo. You can go to [github.com/rssteaching/](https://github.com/rssteaching/) to find your project repo.
     Let's assume your project is under 'github.com/rssteaching/project1-jonsnow' and your name is `jonsnow`.
     
     
-    2.1 login one of the 21 front machines, either physically or remotely.  
+    2.1. login one of the 21 front machines, either physically or remotely.  
         For example, open Terminal (of Linux/MacOS/Windows) or PuTTY and using the following command. `ssh jonsnow@xinu01.cs.purdue.edu`. Then fill in the password and login in the front machine.
 
-    2.2 We need to do some profile setting for the backend machine
+    2.2. We need to do some profile setting for the backend machine
     ```
     export PATH=${PATH}:/p/xinu/bin
     ```
@@ -61,35 +61,40 @@ The projects of this course will be publish through github. So, you need to:
     If you don't want to manually type the above command each time. You can also put the above line within the `~/.bashrc` file so that the environment variable would be automatically set each time you login. 
 
 
-2.3 clone the project repo under your directory.
+    2.3. Clone the project repo under your directory.
 
-        For example,
-        ```
-        Mkdir -p ~/my503/; cd ~/my503/;
-        Git clone sdfsd
-        Cd project1   
-        ```
-        This project folder would be your project root directory.
+    For example, create a folder for repo.
+    ```
+    mkdir -p ~/my503/; cd ~/my503/;
+    git clone https://github.com/rssteaching/project1-jonsnow.git
+    cd project1-jonsnow   
+    ```
+    This project folder, `project1-jonsnow`,  would be your project1's **root directory**.
 
-2.4 Work on the project as needed. 
-     
 
-2.5 Compile the project
-      The exist makefile already provided under `compile` folder.
-       ```
-        Cd ./xinu/compile
-        Make
-        # some times, you need to `make clean` before `make`
-        
-       ```
-       If successfully compiled, a `xinu.xbin` file would be generated.
 
-2.6 Connected to backend machine
-        We use `cs-console` to connect to a backend machine. (For more details, check `cs-console -h`).  
-        ```
-        cs-console
-        ```
-        The console system will automatically connect you to one of the available machines. I.e. *connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'*. Then use `control+shift+2` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
+    2.4 Work on the project as needed. 
+
+
+
+    2.5 Compile the project
+    
+    The provided *makefile* is in `./compile` folder.
+    ```
+    cd compile
+    make
+    # some times, you need to `make clean` before `make`
+    ```
+    If successfully compiled, a `xinu.xbin` file would be generated under the same folder.
+
+
+    2.6 Connected to backend machine
+    
+    We use `cs-console` to connect to a backend machine. (For more details, check `cs-console -h`).  
+    ```
+    cs-console
+    ```
+    The console system will automatically connect you to one of the available machines. i.e. *connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'*. Then use `control+shift+2` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
 ```
 (command-mode) d
 file: xinu.xbin
