@@ -1,9 +1,13 @@
 # CS503 XINU Projects Note
 
 ## XINU Lab
-The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform*.
+The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. 
 
-The fronted machines can also be remotely accessed via TLS/SSL applications such as **ssh** on Linux/MacOS/Windows or **PuTTY** for some early version Windows.  The backend machines are **x86 Intel** Galileo boards equipped with *Quark X1000 processors* that are dedicated to running your implementation of XINU. 
+
+The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform* and it would be either accessed physicly or remotely via TLS/SSL applications such as **ssh** on Linux/MacOS/Windows or **PuTTY** for some early version Windows.  
+
+The backend machines are **x86 Intel** Galileo boards equipped with *Quark X1000 processors* that are dedicated to running your implementation of XINU. 
+
 
 
 ## CS Account
@@ -11,15 +15,15 @@ Students registered in the course should have an account automatically set up. P
 
 
 ## Project Assignments
-We will publish the prjoject through github. So, you need to: 
+The projects of this course will be publish through github. So, you need to: 
 1. Have a github account.
-2. Get familiar with basic github operation. 
+2. Get familiar with some basic github operations. 
 
-    The basic github commands such as `git clone`, `git status`, `git add`, `git commit` and `git push` would be good enough. We will cover some basic operations below.
+    The basic github commands such as `git clone`, `git status`, `git add`, `git commit` and `git push` would be good enough. We will cover those basic operations below.
 
 
 
-## Walk through for each project assignments
+## Walk through scheme for each project
 
 1. Open the project link and accept the assignment.
 
