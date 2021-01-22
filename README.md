@@ -39,7 +39,7 @@ The projects of this course will be publish through github. So, you need to:
     <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="200"/> </kbd>
     <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="200"/> </kbd>
 
-    1.1. Your project repo is under https://github.com/rssteaching/<projectName>-<yourId>/
+    1.1. As the image indicate, your project repo is under `https://github.com/rssteaching/<projectName>-<yourId>/`
 
 
 2. Work on the project. 
