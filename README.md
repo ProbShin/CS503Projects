@@ -44,7 +44,7 @@ The projects of this course will be publish through github. So, you need to:
     1.3. As the image indicate, your project repo is under `https://github.com/rssteaching/<projectName>-<yourId>/`
 
 
-2. Work on the project. 
+1. Work on the project. 
     
     In case forget the project repo. You can go to [github.com/rssteaching/](https://github.com/rssteaching/) to find your project repo.
     Let's assume your project is under 'github.com/rssteaching/project1-jonsnow' and your name is `jonsnow`.
