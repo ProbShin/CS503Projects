@@ -28,10 +28,10 @@ The projects of this course will be publish through github. So, you need to:
 1. Open the project link and accept the assignment.
 
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
-    
    
-    <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="200" border="1px solid #d4d4d4">
-
+   <kbd>
+    <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="400" style="border:5px solid black"/>
+</kbd>
     Accept it and keep next to reach the project page.    
     ![img02](img02.png)
     ![img03](img03.png)
