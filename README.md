@@ -35,13 +35,13 @@ The projects of this course will be publish through github. So, you need to:
    
     1.2. If it is the first time. You need to choice your id.
         
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" width="250" height="250"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" height="250"/> </kbd>
    
     1.3. Keep next.
     
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png" width="200" height="250"/> </kbd>
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png" width="200" height="250"/> </kbd>
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img05.png" width="200" height="250"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="250"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="250"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img05.png"  height="250"/> </kbd>
 
 
 
