@@ -78,7 +78,7 @@ The projects of this course will be publish through github. So, you need to:
 
     * 2.5. Compile the project
     
-        The provided *makefile* is under `./compile` folder.
+        The *makefile* is under `./compile` folder.
         ```
         cd compile
         make
@@ -87,12 +87,12 @@ The projects of this course will be publish through github. So, you need to:
         If successfully compiled, a `xinu.xbin` file would be generated under the same folder.
 
 
-    * 2.6 Connected to backend machine
+    * 2.6 Connected to a backend machine
     
         ```
         cs-console
         ```
-        The console system will automatically connect you to one of the available machines. i.e. *connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'*. (check `cs-concole -h` for more details.) 
+        The *console system* will automatically find one of the available machines. i.e. `connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'`. (check `cs-concole -h` for more details.) 
         
         Then use `control+shift+2` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
         ```
