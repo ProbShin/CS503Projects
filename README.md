@@ -1,7 +1,7 @@
 # Purdue CS503 XINU Projects Note
 
 ## XINU Lab
-<p style="text-align:justify"> The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform*.
+The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform*.
 
 The fronted machines can also be remotely accessed via TLS/SSL applications such as **ssh** on Linux/MacOS/Windows or **PuTTY** for some early version Windows.  The backend machines are **x86 Intel** Galileo boards equipped with *Quark X1000 processors* that are dedicated to running your implementation of XINU. 
 
@@ -15,15 +15,15 @@ We will publish the prjoject through github. So, you need to:
 1. Have a github account.
 2. Get familiar with basic github operation. 
 
-    But I promise that just very basic github operation would be enough for this course. i.e.
-`git clone`, `git status`, `git add`, `git commit` and `git push` would be good.
+    The basic github commands such as `git clone`, `git status`, `git add`, `git commit` and `git push` would be good enough. We will cover some basic operations below.
+
 
 
 ## Walk through for each project assignments
 
 1. Open the project link and accept the assignment.
 
-    For example, We would announce it through piazza or email. You just click the link and it might bring you to the following page.
+    We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
     
     [img](./img1.png)
 
