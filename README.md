@@ -130,9 +130,8 @@ The projects of this course will be publish through github. So, you need to:
         ```
         git push
         ```
-        TA could see your *push*es. Your project would be graded based on the **last push before the deadline**.
+        TA could see your *push*es. Github system would automatically submit your **latest push at the time of the deadline**. And your project would **only** be graded based on that automatic submission.
         
         
-        **Reminder** Do not `push` after the deadline unless you would like to take the "late penalty" on purpous.
-
+        **Reminder** Do not `push` after the deadline. 
 
