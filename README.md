@@ -29,14 +29,13 @@ The projects of this course will be publish through github. So, you need to:
 
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
    
-   <kbd>
-    <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="400" style="border:5px solid black"/>
-</kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="200"/> </kbd>
     Accept it and keep next to reach the project page.    
-    ![img02](img02.png)
-    ![img03](img03.png)
-    ![img04](img04.png)
-    ![img05](img05.png)
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" width="200"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png" width="200"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png" width="200"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img05.png" width="200"/> </kbd>
+
 
 
 2. Work on the project. 
