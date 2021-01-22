@@ -29,12 +29,13 @@ The projects of this course will be publish through github. So, you need to:
 
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
     
-    [ ![](img1.png) ](img1.png)
+    ![img01.png](img01.png)
 
     Accept it and keep next to reach the project page.    
-    [img](./img2.png)
-    [img](./img3.png)
-    [img](./img4.png)
+    ![img02](img02.png)
+    ![img03](img03.png)
+    ![img04](img04.png)
+    ![img05](img05.png)
 
 
 2. Work on the project. 
