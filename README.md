@@ -29,20 +29,17 @@ The projects of this course will be publish through github. So, you need to:
 
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
    
-    1.1. Just accept the assignment.
+    1.1. If it is the first time, you need to grant the access of *github classroom*.
         
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" width="150"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" height="200"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" height="200"/> </kbd>
    
-    1.2. If it is the first time. You need to choice your id.
-        
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" height="250"/> </kbd>
-   
-    1.3. Keep next.
+    1.1. Accept the assignment.
     
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="250"/> </kbd>
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="250"/> </kbd>
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img05.png"  height="250"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="200"/> </kbd>
+    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="200"/> </kbd>
 
+    1.1. Your project repo is under https://github.com/rssteaching/<projectName>-<yourId>/
 
 
 2. Work on the project. 
