@@ -33,10 +33,10 @@ The projects of this course will be publish through github. So, you need to:
    
    
     Accept it and keep next to reach the project page.    
-   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" width="150", height="250"/> </kbd>
-   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png" width="200", height="250"/> </kbd>
-   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png" width="200", height="250"/> </kbd>
-   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img05.png" width="200", height="250"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" width="150" height="250"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png" width="200" height="250"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png" width="200" height="250"/> </kbd>
+   <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img05.png" width="200" height="250"/> </kbd>
 
 
 
