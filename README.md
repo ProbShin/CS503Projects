@@ -30,13 +30,13 @@ The projects of this course will be publish through github. So, you need to:
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
     
    
-    1.1. If it is the first time, you need to grant the access of *github classroom*.
+* 1.1. If it is the first time, you need to grant the access of *github classroom*.
         
     <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" height="200"/> </kbd>
     <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" height="200"/> </kbd>
    
     
-    1.2. Accept the assignment.
+* 1.2. Accept the assignment.
     
     <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="200"/> </kbd>
     <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="200"/> </kbd>
