@@ -94,7 +94,7 @@ The projects of this course will be publish through github. So, you need to:
         ```
         The *console system* will automatically find one of the available machines. i.e. `connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'`. (check `cs-concole -h` for more details.) 
         
-        Then use <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>2</kbd>` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
+        Then use <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>2</kbd> to trigger the *command input mode*.  (`d` for upload. `p` for reboot.)
         ```
         (command-mode) d
         file: xinu.xbin
@@ -104,31 +104,35 @@ The projects of this course will be publish through github. So, you need to:
         (command-mode) p
         file: xinu.xbin
         ```
-
+        
+        Then the *Galileo boards* would load your compiled operating system into its rom and reboot to execute it.
     
     
     
+3. Commit your changes and push before the deadline.
     
-    
-    
-    
-    2.1 login one of the 21 front machines, physically or remotelly.
-    
-        For example, open Terminal (of Linux/MacOS/Windows) or PuTTY.
+    * 3.1. check repo modifications
         ```
-        $ ssh jonsnow@xinu01.cs.purdue.edu
-        jonsnow@xinu01.cs.purdue.edu's password: YouKnowNothing
-        
-        
-
-        
+        git status
         ```
-
-For each project assignments:
-Open and accept the project link. 
-Work on the project. 
-Commit your changes and push before the deadline.
-
-
+    * 3.2. add all modifications so that git system collect the modification.
+        ```
+        git add <the modified files>
+        ```
+    * 3.2 commit modification so that git system will document your work.
+        ```
+        git commit -m "A brief sentence about the modification."
+        ```
+        (You can also use `git commit` to provide more detailed description.) 
+        
+    * 3.3 after `commit` all modification and `git status` shows all clear. Push the local modification sync with server. 
+    
+        ```
+        git push
+        ```
+        TA could see your *push*es. Your project would be graded based on the **last push before the deadline**.
+        
+        
+        **Reminder** Do not `push` after the deadline unless you would like to take the "late penalty" on purpous.
 
 
