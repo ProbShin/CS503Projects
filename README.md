@@ -94,7 +94,7 @@ The projects of this course will be publish through github. So, you need to:
         ```
         The *console system* will automatically find one of the available machines. i.e. `connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'`. (check `cs-concole -h` for more details.) 
         
-        Then use `control+shift+2` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
+        Then use <kbd>control</kbd>+<kbd>shift</kbd>+<kbd>2</kbd>` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
         ```
         (command-mode) d
         file: xinu.xbin
