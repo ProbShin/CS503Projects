@@ -1,12 +1,14 @@
-# Purdue CS503 XINU Projects Readme
+# Purdue CS503 XINU Projects Note
 
 ## XINU Lab
-The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu * which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform*.
+<p style="text-align:justify"> The XINU lab is located in *Haas257*. There are 21 Linux frontend machines *xinu01.cs.purdue.edu*, *xinu02.cs.purdue.edu*, ..., *xinu21.cs.purdue.edu* which are linked to 96 backend machines *galileo101.cs.purdue.edu*, *galileo102.cs.purdue.edu*, ..., *galileo196.cs.purdue.edu*. The front machines served as operating system *code development* (coding, compiling, etc) while the backend machines served as actual operating system *running platform*.
 
-The fronted machines can also be remotely accessed via TLS/SSL applications such as **ssh** on Linux/MacOS/Windows or **PuTTY** for some early version Windows.  The backend machines are x86 Intel Galileo boards equipped with Quark X1000 processors that are dedicated to running your implementation of XINU. 
+The fronted machines can also be remotely accessed via TLS/SSL applications such as **ssh** on Linux/MacOS/Windows or **PuTTY** for some early version Windows.  The backend machines are **x86 Intel** Galileo boards equipped with *Quark X1000 processors* that are dedicated to running your implementation of XINU. 
+
 
 ## CS Account
 Students registered in the course should have an account automatically set up. Please check by going to Haas257 or remote accessing one of the frontend lab machines. If you have registered but don't have an account, please contact [ScienceHelp@purdue.edu](ScienceHelp@purdue.edu).
+
 
 ## Project Assignments
 We will publish the prjoject through github. So, you need to: 
