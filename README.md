@@ -30,18 +30,18 @@ The projects of this course will be publish through github. So, you need to:
     We would announce release the link through piazza or email. You just click the link and it might bring you to the following page.
     
    
-* 1.1. If it is the first time, you need to grant the access of *github classroom*.
+    * 1.1. If it is the first time, you need to grant the access of *github classroom*.
         
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" height="200"/> </kbd>
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" height="200"/> </kbd>
+        <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img01.png" height="200"/> </kbd>
+        <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img02.png" height="200"/> </kbd>
    
     
-* 1.2. Accept the assignment.
+    * 1.2. Accept the assignment.
     
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="200"/> </kbd>
-    <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="200"/> </kbd>
+        <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img03.png"  height="200"/> </kbd>
+        <kbd> <img src="https://github.com/ProbShin/CS503ProjectsNote/blob/main/img/img04.png"  height="200"/> </kbd>
 
-    1.3. As the image indicate, your project repo is under `https://github.com/rssteaching/<projectName>-<yourId>/`
+    * 1.3. As the image indicate, your project repo is under `https://github.com/rssteaching/<projectName>-<yourId>/`
 
 
 2. Work on the project. 
@@ -50,60 +50,60 @@ The projects of this course will be publish through github. So, you need to:
     Let's assume your project is under 'github.com/rssteaching/project1-jonsnow' and your name is `jonsnow`.
     
     
-    2.1. login one of the 21 front machines, either physically or remotely.  
+    * 2.1. login one of the 21 front machines, either physically or remotely.  
         For example, open Terminal (of Linux/MacOS/Windows) or PuTTY and using the following command. `ssh jonsnow@xinu01.cs.purdue.edu`. Then fill in the password and login in the front machine.
 
-    2.2. We need to do some profile setting for the backend machine
-    ```
-    export PATH=${PATH}:/p/xinu/bin
-    ```
+    * 2.2. We need to do some profile setting for the backend machine
+        ```
+        export PATH=${PATH}:/p/xinu/bin
+        ```
     
-    If you don't want to manually type the above command each time. You can also put the above line within the `~/.bashrc` file so that the environment variable would be automatically set each time you login. 
+        If you don't want to manually type the above command each time. You can also put the above line within the `~/.bashrc` file so that the environment variable would be automatically set each time you login. 
 
 
-    2.3. Clone the project repo under your directory.
+    * 2.3. Clone the project repo under your directory.
 
-    For example, create a folder for repo.
-    ```
-    mkdir -p ~/my503/; cd ~/my503/;
-    git clone https://github.com/rssteaching/project1-jonsnow.git
-    cd project1-jonsnow   
-    ```
-    This project folder, `project1-jonsnow`,  would be your project1's **root directory**.
-
-
-
-    2.4 Work on the project as needed. 
+        For example create a folder for repo.
+        ```
+        mkdir -p ~/my503/; cd ~/my503/;
+        git clone https://github.com/rssteaching/project1-jonsnow.git
+        cd project1-jonsnow   
+        ```
+        This project folder, `project1-jonsnow`,  would be your project1's **root directory**.
 
 
+    * 2.4. Modify the source code as needed 
 
-    2.5 Compile the project
+
+
+    * 2.5. Compile the project
     
-    The provided *makefile* is in `./compile` folder.
-    ```
-    cd compile
-    make
-    # some times, you need to `make clean` before `make`
-    ```
-    If successfully compiled, a `xinu.xbin` file would be generated under the same folder.
+        The provided *makefile* is under `./compile` folder.
+        ```
+        cd compile
+        make
+        # some times, you need to `make clean` before `make`
+        ```
+        If successfully compiled, a `xinu.xbin` file would be generated under the same folder.
 
 
-    2.6 Connected to backend machine
+    * 2.6 Connected to backend machine
     
-    We use `cs-console` to connect to a backend machine. (For more details, check `cs-console -h`).  
-    ```
-    cs-console
-    ```
-    The console system will automatically connect you to one of the available machines. i.e. *connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'*. Then use `control+shift+2` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
-```
-(command-mode) d
-file: xinu.xbin
-```
-And then 
-```
-(command-mode) p
-file: xinu.xbin
-```
+        ```
+        cs-console
+        ```
+        The console system will automatically connect you to one of the available machines. i.e. *connection 'galileo104', class 'quark', host 'xinuserver.cs.purdue.edu'*. (check `cs-concole -h` for more details.) 
+        
+        Then use `control+shift+2` to trigger the command input mode.  (`d` for upload. `p` for reboot.)
+        ```
+        (command-mode) d
+        file: xinu.xbin
+        ```
+        And then 
+        ```
+        (command-mode) p
+        file: xinu.xbin
+        ```
 
     
     
