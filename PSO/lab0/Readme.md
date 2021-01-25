@@ -35,7 +35,9 @@ After implementing this command, when the user types the "hello" command in the 
 
  </br>
 
+
 --------------------------------------------------------------
+
 
 ## 4. Memory layout 
 
@@ -49,6 +51,7 @@ The new command should print the address of:
    * (4) Furthermore, the command should print the address of the xsh_layout function.
 
  </br>
+ 
 --------------------------------------------------------------
 
 # XINU Labs
