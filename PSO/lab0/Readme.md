@@ -5,7 +5,9 @@
 
 The code for the first user process that is created by XINU is located in system/main.c. By default it creates a single process that implements the XINU shell. Furthermore, it repeatedly creates a new shell after each shell process returns.
 
-Processes in XINU are created using the create system call which does the following: (1) creates all necessary control structures for the new process and (2) initializes the process stack for the new process. The create system call returns the process identifier (PID) of the new process. The code for the create system call is located in system/create.c. Open system/create.c and familiarize does.
+Processes in XINU are created using the create system call which does the following: 
+(1) creates all necessary control structures for the new process and 
+(2) initializes the process stack for the new process. The create system call returns the process identifier (PID) of the new process. The code for the create system call is located in system/create.c. Open system/create.c and familiarize does.
 
 Modify system/main.c so that it prints the process ID of each new shell process by producing messages with the following format: "New shell PID = %d\n". Ensure the message is printed before the shell process starts running by invoking the kprintf() kernel function before the new process is resumed.
 
