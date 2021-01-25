@@ -1,4 +1,4 @@
-# Lab0
+# PSO Lab0 Materials
 
 
 ## 1. Inspect XINU's first process.
@@ -54,7 +54,7 @@ The new command should print the address of:
  
 --------------------------------------------------------------
 
-# XINU Labs
+# PSO XINU Lab materials
 
 The XINU lab is located in Haas257. There are 21 Linux frontend machines xinu01.cs.purdue.edu, xinu02.cs.purdue.edu, xinu03..., ..., xinu21.cs.purdue.edu which are linked to 96 backend machines galileo101.cs.purdue.edu, galileo102.cs.purdue.edu, ..., galileo196.cs.purdue.edu.
 
