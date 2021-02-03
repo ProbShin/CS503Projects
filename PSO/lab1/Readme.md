@@ -1,27 +1,31 @@
 # Lab1 PSO materials
 
 ----------------------------
-## 1. Handout go through
+### 1. Handout go through
 1. Aging Scheduler
 1. Proportional Share Scheduler
 1. Multilevel Feedback Queueu Scheduler
 1. Process owernership
 
+</br>
 
 -----------------------------------------
 
-## 2. Context-Switch and `resched()`
+### 2. Context-Switch and `resched()`
 ![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
 
-
+</br>
+</br>
 -----------------------------------------
 
-## 3. Readylist
+### 3. Readylist
 
 readylist is a prority queue, using XINU's queue system. It stores all the process that is `PR_READY` to be context-switched in. 
 * insert
 * dequeue
 
+</br>
+</br>
 
 -----------------------------------------
 ## 4. Queue
@@ -30,6 +34,8 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 * enqueue.c
 * queue.h
 
+</br>
+</br>
 
 -----------------------------------------
 # Timer Interrupt 
@@ -39,6 +45,8 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 
 `clkhandler()` by default would be triggered per 1ms. It would call `resched()` to "context-switch" procesess depend on the `QUTANTUM`.
 
+</br>
+</br>
 
 
 
