@@ -19,12 +19,14 @@
 -----------------------------------------
 
 ### 2. Context-Switch and `resched()`
+
 </br>
 
 ![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
 
 </br>
 </br>
+
 -----------------------------------------
 
 ### 3. Readylist
@@ -38,6 +40,7 @@ readylist is a prority queue, using XINU's queue system. It stores all the proce
 </br>
 
 -----------------------------------------
+
 </br>
 
 ## 4. Queue
