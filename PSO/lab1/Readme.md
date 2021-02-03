@@ -119,7 +119,7 @@ rowNo.|    Key    | nxt | pre |
        ...
 ```
 
-There are only two process P4 and P5 which have preority 10 and 20 in the *readylist*.
+This example shows that there are only two process P4 and P5 which have preority 10 and 20 in the *readylist*.
 
 
 
