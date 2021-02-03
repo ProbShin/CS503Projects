@@ -34,7 +34,7 @@
 
 ### 3. Readylist
 
-readylist is a prority queue, using XINU's queue system. It stores all the process that is `PR_READY` to be context-switched in. 
+XINU store all the `PR_READY` processes in a prority-queue data structure called **readylist**. It utlizes XINU's queue system. 
 * insert
 * dequeue
 
