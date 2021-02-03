@@ -59,6 +59,7 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 </br>
 
 
+<!--
 ------------------------------------------------
 
 </br>
@@ -72,6 +73,7 @@ basic operations of double-linked-list.
 </br>
 </br>
 
+-->
 -----------------------------------------
 
 </br>
