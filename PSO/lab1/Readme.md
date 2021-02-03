@@ -35,8 +35,12 @@
 ### 3. Readylist
 
 XINU store all the `PR_READY` processes in a prority-queue data structure called **readylist**. It utlizes XINU's queue system. 
+You need to implement your own operation on this data structure. i.e. `traverse`, `insert`, `remove`.
+
+The XINU's readylist related implementations.
 * `insert` in *insert.c*
 * `dequeue` in *queue.c*
+* *queue.h*
 
 </br>
 </br>
