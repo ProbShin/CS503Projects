@@ -49,10 +49,34 @@ reminder:
 XINU store all the `PR_READY` processes in a prority-queue data structure called **readylist**. It utlizes XINU's queue system. 
 You need to implement your own operation on this data structure. i.e. `traverse`, `insert`, `remove`.
 
+```
+# An example of double linked list, (this is not XINU used)
+struct node {
+  int    val;
+  struct node*  prev;
+  struct node*  next
+}
+```
+
+```
+Head <-> 30 <-> 20 <-> 20 <-> 10 <-> Tail 
+         |      |       |      |
+         p1     p2      p3     p4
+        
+
+Demo: insert 40 (p5); insert 5 (p6); insert 20 (p7);
+
+Head <-> 40 <-> 30 <-> 20 <-> 20 <-> 20 <-> 10 <-> 5 <-> Tail 
+          |     |     |      |      |     |     |
+         p5    p1     p2     p3     p7    p4    p6
+```
+
+
 The XINU's readylist related implementations.
 * data structure and marco functions in *queue.h*
 * `insert` in *insert.c*
 * `dequeue` in *queue.c*
+
 
 </br>
 </br>
@@ -66,6 +90,36 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 * `dequeue`, `enqueue` in *queue.c*
 * data structure and marco functions in *queue.h*
 * assigned space in *initialize.c*
+
+```
+# each row of the table served as an node.
+# each process assigned a node.
+# each queue assigned two nodes (Head, tail)
+
+   |-----------------------|
+   |    Key    | nxt | pre |
+   |-----------------------|
+              ...
+   |   ...     |     |     |
+   |-----------------------|
+ 4 |   10      |  q  |  5  |
+   |-----------------------|
+ 5 |   20      | q+1 |  4  |
+   |-----------------------|
+   |           |     |     |
+   |-----------------------|
+   |           |     |     |
+   |-----------------------|
+q  |    Head   | nxt | pre |    \
+   |-----------------------|     |-> readylist
+q+1|    Tail   | nxt | pre |    /
+   |-----------------------|
+   |           |     |     |
+       ...
+```
+
+
+
 
 </br>
 </br>
