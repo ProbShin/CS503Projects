@@ -38,9 +38,9 @@ XINU store all the `PR_READY` processes in a prority-queue data structure called
 You need to implement your own operation on this data structure. i.e. `traverse`, `insert`, `remove`.
 
 The XINU's readylist related implementations.
+* data structure and marco functions in *queue.h*
 * `insert` in *insert.c*
 * `dequeue` in *queue.c*
-* data structure and marco functions in *queue.h*
 
 </br>
 </br>
