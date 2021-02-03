@@ -11,7 +11,7 @@ Handout
 -----------------------------------------
 
 ## process context switch and `resched()`
-![https://github.com/probshin/myCS503Project/PSO/lab1/img1.png](img)
+![https://github.com/probshin/myCS503Project/PSO/lab1/img1.png](https://github.com/probshin/myCS503Project/PSO/lab1/img1.png)
 
 
 -----------------------------------------
