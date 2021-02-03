@@ -12,7 +12,7 @@ Index
 ------------------------------------------
 </br>
 
-### * Handout go through
+* ### Handout go through
 1. Aging Scheduler [20pt]
 1. Proportional Share Scheduler [50pt]
 1. Multilevel Feedback Queueu Scheduler [70pt]
