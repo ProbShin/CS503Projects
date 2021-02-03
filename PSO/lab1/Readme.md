@@ -11,7 +11,7 @@
 -----------------------------------------
 
 ## 2. Context-Switch and `resched()`
-![https://github.com/probshin/myCS503Project/PSO/lab1/img1.png](https://github.com/probshin/myCS503Project/PSO/lab1/img1.png)
+![https://github.com/ProbShin/myCS503ProjectsRepo/edit/main/PSO/lab1/img1.png](https://github.com/probshin/myCS503Project/PSO/lab1/img1.png)
 
 
 -----------------------------------------
