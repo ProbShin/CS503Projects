@@ -40,7 +40,7 @@ You need to implement your own operation on this data structure. i.e. `traverse`
 The XINU's readylist related implementations.
 * `insert` in *insert.c*
 * `dequeue` in *queue.c*
-* *queue.h*
+* data structure and marco functions in *queue.h*
 
 </br>
 </br>
