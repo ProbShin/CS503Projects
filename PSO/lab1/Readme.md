@@ -1,6 +1,7 @@
 # Lab1 PSO materials
 
 </br>
+
 ------------------------------------------
 
 ### 1. Handout go through
@@ -43,6 +44,7 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 </br>
 
 -----------------------------------------
+
 # Timer Interrupt 
 * clkhandler.c
 * clkinit.c
