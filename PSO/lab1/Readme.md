@@ -7,6 +7,7 @@
 1. Multilevel Feedback Queueu Scheduler
 1. Process owernership
 
+[lab1 handout](https://www.cs.purdue.edu/homes/pfonseca/teaching/cs503/21spring/labs/lab1.html)
 </br>
 
 -----------------------------------------
