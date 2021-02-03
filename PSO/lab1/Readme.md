@@ -13,6 +13,11 @@
 
 [lab1 handout](https://www.cs.purdue.edu/homes/pfonseca/teaching/cs503/21spring/labs/lab1.html)
 
+
+reminder: 
+1. Do **not** *define/initilize* new function or variables in `main.c`. i.e. you can *define/initilize* in the begining of *initilzed.c*, and *declare* in *prototype.h*
+1. using `XDEBUG_KPRINTF` for your own debug print purpose.
+
 </br>
 </br>
 
