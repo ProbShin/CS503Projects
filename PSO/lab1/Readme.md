@@ -1,5 +1,11 @@
 # Lab1 PSO materials
 
+1. handout go through
+1. process context switch
+1. readylist and queue
+1. timer interrupt
+
+
 </br>
 
 ------------------------------------------
