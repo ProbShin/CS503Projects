@@ -50,7 +50,7 @@ XINU store all the `PR_READY` processes in a prority-queue data structure called
 You need to implement your own operation on this data structure. i.e. `traverse`, `insert`, `remove`.
 
 ```
-# An example of double linked list, (this is not XINU used)
+# An example of double linked list, (Note, this is not XINU used)
 struct node {
   int    val;
   struct node*  prev;
@@ -59,6 +59,7 @@ struct node {
 ```
 
 ```
+# priority-queue operation demo
 Head <-> 30 <-> 20 <-> 20 <-> 10 <-> Tail 
          |      |       |      |
          p1     p2      p3     p4
