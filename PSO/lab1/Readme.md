@@ -22,7 +22,7 @@ Index
 
 
 reminder: 
-1. Do **NOT** *define/initilize* new function or variables in `main.c`. i.e. you can *define/initilize* in the begining of *initilzed.c*, and *declare* in *prototype.h*
+1. Do **NOT** *define/initilize* new function or variables in `main.c`. i.e. you can *define/initilize* in the begining of *initilzed.c*, and *declare* in *prototype.h*.
 1. Recommanded using `XDEBUG_KPRINTF` for your own debug print purpose.
 
 </br>
