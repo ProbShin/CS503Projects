@@ -2,10 +2,10 @@
 
 ----------------------------
 ## 1. Handout go through
-1.1 Aging Scheduler
-1.2 Proportional Share Scheduler
-1.3 Multilevel Feedback Queueu Scheduler
-1.4 Process owernership
+1. Aging Scheduler
+1. Proportional Share Scheduler
+1. Multilevel Feedback Queueu Scheduler
+1. Process owernership
 
 
 -----------------------------------------
