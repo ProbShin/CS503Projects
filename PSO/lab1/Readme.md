@@ -18,9 +18,10 @@
 
 -----------------------------------------
 
+</br>
+
 ### 2. Context-Switch and `resched()`
 
-</br>
 
 ![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
 
