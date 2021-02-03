@@ -58,10 +58,19 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 </br>
 </br>
 
+------------------------------------------------
+
+</br>
+
+### 4.1 Double-linked-list
+basic operations of double-linked-list.
+`travers`, `insert`, `remove`
+
+</br></br>
 -----------------------------------------
 </br>
 
-### Timer Interrupt 
+### 5. Timer Interrupt 
 * clkhandler.c
 * clkinit.c
 * clkdisp.S
