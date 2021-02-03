@@ -11,7 +11,7 @@
 -----------------------------------------
 
 ## 2. Context-Switch and `resched()`
-![processes ctxsw example](img1.png)
+![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
 
 
 -----------------------------------------
