@@ -3,6 +3,7 @@
 </br>
 
 ------------------------------------------
+</br>
 
 ### 1. Handout go through
 1. Aging Scheduler
@@ -18,6 +19,8 @@
 -----------------------------------------
 
 ### 2. Context-Switch and `resched()`
+</br>
+
 ![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
 
 </br>
@@ -25,6 +28,7 @@
 -----------------------------------------
 
 ### 3. Readylist
+</br>
 
 readylist is a prority queue, using XINU's queue system. It stores all the process that is `PR_READY` to be context-switched in. 
 * insert
@@ -34,6 +38,8 @@ readylist is a prority queue, using XINU's queue system. It stores all the proce
 </br>
 
 -----------------------------------------
+</br>
+
 ## 4. Queue
 XINU's queue system. Preassigned space for a **Head** and a **Tail** for per queue using table to implement link list.
 * dequeue.c
@@ -44,6 +50,7 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 </br>
 
 -----------------------------------------
+</br>
 
 # Timer Interrupt 
 * clkhandler.c
