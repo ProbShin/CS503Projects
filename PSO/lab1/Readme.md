@@ -29,8 +29,9 @@
 
 -----------------------------------------
 
-### 3. Readylist
 </br>
+
+### 3. Readylist
 
 readylist is a prority queue, using XINU's queue system. It stores all the process that is `PR_READY` to be context-switched in. 
 * insert
