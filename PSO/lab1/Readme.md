@@ -50,10 +50,10 @@ The XINU's readylist related implementations.
 </br>
 
 ### 4. Queue
-XINU's queue system. Preassigned space for a **Head** and a **Tail** for per queue using table to implement link list.
-* dequeue.c
-* enqueue.c
-* queue.h
+XINU's queue system. Preassigned space for a **Head** and a **Tail** for per queue using table to implement double-linked-list.
+* `dequeue`, `enqueue` in *queue.c*
+* data structure and marco functions in *queue.h*
+* assigned space in *initialize.c*
 
 </br>
 </br>
