@@ -45,7 +45,7 @@ XINU store all the `PR_READY` processes in a prority-queue data structure called
 
 </br>
 
-## 4. Queue
+### 4. Queue
 XINU's queue system. Preassigned space for a **Head** and a **Tail** for per queue using table to implement link list.
 * dequeue.c
 * enqueue.c
@@ -57,7 +57,7 @@ XINU's queue system. Preassigned space for a **Head** and a **Tail** for per que
 -----------------------------------------
 </br>
 
-# Timer Interrupt 
+### Timer Interrupt 
 * clkhandler.c
 * clkinit.c
 * clkdisp.S
