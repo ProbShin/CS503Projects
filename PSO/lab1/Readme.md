@@ -1,5 +1,9 @@
 # Lab1 PSO materials
 
+</br>
+</br>
+</br>
+</br>
 
 ### 1. Handout go through
 1. Aging Scheduler
@@ -8,6 +12,8 @@
 1. Process owernership
 
 [lab1 handout](https://www.cs.purdue.edu/homes/pfonseca/teaching/cs503/21spring/labs/lab1.html)
+
+</br>
 </br>
 
 -----------------------------------------
