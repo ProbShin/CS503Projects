@@ -11,7 +11,7 @@
 -----------------------------------------
 
 ## 2. Context-Switch and `resched()`
-![processes ctxsw example](PSO/lab1/img1.png)
+![processes ctxsw example](img1.png)
 
 
 -----------------------------------------
