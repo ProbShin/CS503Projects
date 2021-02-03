@@ -1,9 +1,6 @@
 # Lab1 PSO materials
 
 </br>
-</br>
-</br>
-</br>
 
 ### 1. Handout go through
 1. Aging Scheduler
