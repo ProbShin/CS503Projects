@@ -125,7 +125,7 @@ This example shows that there are only two process P4 and P5 which have preority
 
 </br>
 </br>
-** Traverse **
+**Traverse**
 ```
 # pseudo code, not the real code.
 For i = Head_of_readylist.qnext; i!=Tail_of_readylist; i = queuetab[i].qnext :
