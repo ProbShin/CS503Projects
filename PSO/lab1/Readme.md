@@ -125,11 +125,13 @@ This example shows that there are only two process P4 and P5 which have preority
 
 </br>
 </br>
-** Traverse **
+
+**Traverse the queue**
+
 ```
 # pseudo code, not the real code.
-For i = Head_of_readylist.qnext; i!=Tail_of_readylist; i = queuetab[i].qnext :
-    print "process with pid = %d "%(i)
+for i = Head.qnext; i != Tail; i = queuetab[ i ].qnext :
+    print "process pid = %d\n"%i; # process node here
 ```
 
 </br>
@@ -166,4 +168,41 @@ basic operations of double-linked-list.
 </br>
 
 
+-----------------------------------------------
 
+</br>
+
+### 6. Fixed-point libraries and floating points of XINU
+
+1. floating points operations and XINU
+2. Fixed-point libraries
+
+The best materials so far are
+```
+*. read the source code of `fix16.tgz`. 
+*. try compile and run.
+   gcc *.c; 
+   ./a.out
+*. read and try XINU's system/fix16test.c
+*. read and try XINU's system/main.c
+```
+
+
+* For example, +, -, \*, / output.
+
+
+* For example, to do  `load_avg := (59/60) * load_avg + (1/60) * n_ready_processes`
+```c
+int n_ready_processes = 3;
+fix16_t load_avg = fix16_from_int(0);
+
+load_avg = fix16_div(fix16_add( fix16_mul(fix16_from_int(59), load_avg), fix16_from_int(n_ready_processes)), fix16_from_int(60));
+
+char output[128];
+fix16_to_str(load_avg,output,4);
+kprintf("load_avg = %s\n", output);
+
+```
+
+
+For materials,
