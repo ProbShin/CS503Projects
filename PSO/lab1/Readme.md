@@ -125,9 +125,13 @@ This example shows that there are only two process P4 and P5 which have preority
 
 </br>
 </br>
+<<<<<<< HEAD
 
 **Traverse the queue**
 
+=======
+**Traverse**
+>>>>>>> 08faed6b821dd55f7eac865895b5630dd7fbefda
 ```
 # pseudo code, not the real code.
 for i = Head.qnext; i != Tail; i = queuetab[ i ].qnext :
