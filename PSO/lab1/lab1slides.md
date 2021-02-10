@@ -39,23 +39,14 @@ reminder:
 
 
 
-```
-process P1(){
-  int i=0;
-  while(1) {
-     i++;
-  }
-  return OK;
-}
-
-
-process P2(){
-  int x=0;
-  while(true){
-     x++;
-  }
-  return OK
-}
+```text
+process P1(){         |        process P2(){
+  int i=0;            |          int x=0;
+  while(1) {          |          while(1) {
+     i++;             |            x++;
+  }                   |          }
+  return OK;          |          return OK;
+}                     |        }
 ```
 
 </br>
@@ -95,9 +86,9 @@ Head <-> 40 <-> 30 <-> 20 <-> 20 <-> 20 <-> 10 <-> 5 <-> Tail
 
 
 The XINU's readylist related implementations.
-* data structure and marco functions in *queue.h*
-* `insert` in *insert.c*
-* `dequeue` in *queue.c*
+* `queue.h` for data structure and marco functions.
+* `insert.c` for `insert()` to insert a node to a **priority-queue**.
+* `queue.c` for `dequeue()` to dequeue the first node from a **priority-queue**.
 
 
 </br>
@@ -108,10 +99,11 @@ The XINU's readylist related implementations.
 </br>
 
 ### 4. Queue
-XINU's queue system. Preassigned space for a **Head** and a **Tail** for per queue using table to implement double-linked-list.
-* `dequeue`, `enqueue` in *queue.c*
-* data structure and marco functions in *queue.h*
-* assigned space in *initialize.c*
+XINU's queue system. Pre-assigned space for a **Head** and a **Tail** for per queue using table to implement double-linked-list.
+* `queue.c` for `dequeue()`, `enqueue()` function to pop/push a node to a queue.
+* `queue.h` for queue related data structure and marco functions.
+* `initialize.c` for inilization of the queue table.
+
 
 ```
 # each row of the table served as an node.
