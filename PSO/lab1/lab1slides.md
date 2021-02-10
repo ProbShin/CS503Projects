@@ -116,6 +116,29 @@ rowNo.|    Key    | nxt | pre |
               ...
       |   ...     |     |     |
       |-----------------------|
+  4   |   10      | pre | nxt |
+      |-----------------------|
+  5   |   20      | pre | nxt |
+      |-----------------------|
+      |           |     |     |
+      |-----------------------|
+      |           |     |     |
+      |-----------------------|
+  q   |    Head   | pre | nxt |    \
+      |-----------------------|     |-> readylist
+ q+1  |    Tail   | pre | nxt |    /
+      |-----------------------|
+      |           |     |     |
+       ...
+```
+
+This example shows that there are only **two process P4 and P5 which have priority 10 and 20 in the 'readylist'**.
+
+`Head <=> P4 <=> P5 <=> TAIL`
+
+
+```
+      |-----------------------|
   4   |   10      |  q  |  5  |
       |-----------------------|
   5   |   20      | q+1 |  4  |
@@ -124,16 +147,11 @@ rowNo.|    Key    | nxt | pre |
       |-----------------------|
       |           |     |     |
       |-----------------------|
-  q   |    Head   | nxt | pre |    \
+  q   |    Head   |  4  | pre |    \
       |-----------------------|     |-> readylist
- q+1  |    Tail   | nxt | pre |    /
+ q+1  |    Tail   | nxt |  5  |    /
       |-----------------------|
-      |           |     |     |
-       ...
 ```
-
-This example shows that there are only two process P4 and P5 which have priority 10 and 20 in the *readylist*.
-
 
 
 </br>
@@ -144,7 +162,12 @@ This example shows that there are only two process P4 and P5 which have priority
 ```
 # pseudo code, not the real code.
 for i = Head.qnext; i != Tail; i = queuetab[ i ].qnext :
-    print "process pid = %d\n"%i; # process node here
+    print "p%d has priority %d\n"%(proctab[i].priority, i) # process node here
+```
+
+```
+p4 has priority 10
+p5 has priority 20
 ```
 
 </br>
