@@ -196,7 +196,7 @@ rowNo.|    Key    | nxt | pre |
        ...
 ```
 
-This example shows that there are only **two process P4 and P5 which have priority 10 and 20 in the 'readylist'**.
+This example shows that there are only **two process P5 and P4 which have priority 10 and 20 in the 'readylist'**.
 
 `Head <=> P4 <=> P5 <=> TAIL`
 
