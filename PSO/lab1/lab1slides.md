@@ -4,7 +4,7 @@ Index
 1. process context switch
 1. readylist and queue
 1. timer interrupt
-
+1. float-point operations, XINU and fixed-point library
 
 </br>
 </br>
@@ -22,8 +22,8 @@ Index
 
 
 reminder: 
-1. Do **NOT** *define/initilize* new function or variables in `main.c`. i.e. you can *define/initilize* in the begining of *initilzed.c*, and *declare* in *prototype.h*.
-1. Recommanded using `XDEBUG_KPRINTF` for your own debug print purpose.
+1. **Required**: Do **NOT** *define/initialize* new function or variables in `main.c`. Instead, you could *define/initialize* in the beginning of *initialized.c*, and *declare* them in *prototype.h*.
+1. **Recommended**: you can use `XDEBUG_KPRINTF` function for your own debug kprint purpose, use 'XTEST_KPRINTF' function for the handout specified kprint purpose. The definitions of the above functions are under *./include/process.h*
 
 </br>
 </br>
@@ -32,10 +32,31 @@ reminder:
 
 </br>
 
-### 2. Context-Switch and `resched()`
+### 2. Context-Switch and `rescued()`
 
 
 ![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
+
+
+
+```
+process P1(){
+  int i=0;
+  while(1) {
+     i++;
+  }
+  return OK;
+}
+
+
+process P2(){
+  int x=0;
+  while(true){
+     x++;
+  }
+  return OK
+}
+```
 
 </br>
 </br>
@@ -46,7 +67,7 @@ reminder:
 
 ### 3. Readylist
 
-XINU store all the `PR_READY` processes in a prority-queue data structure called **readylist**. It utlizes XINU's queue system. 
+XINU store all the `PR_READY` processes in a priority-queue data structure called **readylist**. It utilizes XINU's queue system. 
 You need to implement your own operation on this data structure. i.e. `traverse`, `insert`, `remove`.
 
 ```
@@ -119,19 +140,15 @@ rowNo.|    Key    | nxt | pre |
        ...
 ```
 
-This example shows that there are only two process P4 and P5 which have preority 10 and 20 in the *readylist*.
+This example shows that there are only two process P4 and P5 which have priority 10 and 20 in the *readylist*.
 
 
 
 </br>
 </br>
-<<<<<<< HEAD
 
 **Traverse the queue**
 
-=======
-**Traverse**
->>>>>>> 08faed6b821dd55f7eac865895b5630dd7fbefda
 ```
 # pseudo code, not the real code.
 for i = Head.qnext; i != Tail; i = queuetab[ i ].qnext :
@@ -149,7 +166,7 @@ for i = Head.qnext; i != Tail; i = queuetab[ i ].qnext :
 
 ### 4.1 Double-linked-list
 basic operations of double-linked-list.
-* `travers`
+* `traverse`
 * `insert`
 * `remove`
 
@@ -166,47 +183,45 @@ basic operations of double-linked-list.
 * clkinit.c
 * clkdisp.S
 
-`clkhandler()` by default would be triggered per 1ms. It would call `resched()` to "context-switch" procesess depend on the `QUTANTUM`.
+`clkhandler()` by default would be triggered per 1ms. It would call `resched()` to "context-switch" processes depend on the `QUANTUM`.
 
 </br>
 </br>
 
-
------------------------------------------------
+-----------------------------------------
 
 </br>
 
-### 6. Fixed-point libraries and floating points of XINU
+### 6. Float-point operations, XINU and Fixed-point library 
 
-1. floating points operations and XINU
-2. Fixed-point libraries
-
-The best materials so far are
+* Float-point operations are not unit operations which means they need special treatment. 
+* Fixed-point library uses integer operations instead.
+  - demo how to download, read and execute.
+  - under XINU
+      read `system/main.c` and `system/fix16test.c`
+  i.e. to do `load_avg := (59/60) * load_avg + (1/60) * n_ready_processes` 
 ```
-*. read the source code of `fix16.tgz`. 
-*. try compile and run.
-   gcc *.c; 
-   ./a.out
-*. read and try XINU's system/fix16test.c
-*. read and try XINU's system/main.c
+    int n_ready_processes = 3;
+    fix16_t load_avg = fix16_from_int(0);
+    
+    load_avg = fix16_div( 
+                    fix16_add( 
+                          fix16_mul(fix16_from_int(59), load_avg)
+                          , fix16_from_int(n_ready_processes) )
+                     , fix16_from_int(60)
+                );
+    
+    fix16_to_str(load_avg,output,6);
+    char output[128];
+    kprintf("load_avg = %s\n", output);
 ```
+  
+------------------------------------
+
+Materials 
+* fix16.tgz source code
+* xinu *system/main.c* and *system/fix16test.c*
+</br>
+</br>
 
 
-* For example, +, -, \*, / output.
-
-
-* For example, to do  `load_avg := (59/60) * load_avg + (1/60) * n_ready_processes`
-```c
-int n_ready_processes = 3;
-fix16_t load_avg = fix16_from_int(0);
-
-load_avg = fix16_div(fix16_add( fix16_mul(fix16_from_int(59), load_avg), fix16_from_int(n_ready_processes)), fix16_from_int(60));
-
-char output[128];
-fix16_to_str(load_avg,output,4);
-kprintf("load_avg = %s\n", output);
-
-```
-
-
-For materials,
