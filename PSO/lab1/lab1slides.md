@@ -53,43 +53,36 @@ process P1(){         |        process P2(){
 ![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
 
 ```c
-void	clkhandler( int32	arg ) {
-  if((++count1000) >= 1000) {
-    clktime++;
-		count1000 = 0;
-	}
+void clkhandler(..) {
+    if((++count1000) >= 1000) { // update time
+        clktime++;
+        count1000 = 0;
+    }
 
-	if((--preempt) <= 0) {
-		preempt = QUANTUM;
-		resched();
-	}
+    if((--preempt) <= 0) { // trigger context-switch
+        preempt = QUANTUM;
+        resched();
+    }
 }
 ```
 
 ```c
-void	resched(void) {
-	struct procent *ptold;	/* Ptr to table entry for old process	*/
-	struct procent *ptnew;	/* Ptr to table entry for new process	*/
+void resched(void) {
+    ptold = &proctab[currpid];
+    if (ptold->prstate == PR_CURR) {  /* put current process back to readylist */
+        ptold->prstate = PR_READY;
+        insert(currpid, readylist, ptold->prprio);
+    }
 
-	ptold = &proctab[currpid];
-	if (ptold->prstate == PR_CURR) {  /* Process remains eligible */
-		if (ptold->prprio > firstkey(readylist)) {
-			return;
-		}
-		/* Old process will no longer remain current */
-		ptold->prstate = PR_READY;
-		insert(currpid, readylist, ptold->prprio);
-	}
+    /* pick up a process from readylist */
+    currpid = dequeue(readylist);  // which policy is this
+    ptnew = &proctab[currpid];
+    ptnew->prstate = PR_CURR;
+    preempt = QUANTUM;		/* Reset time slice for process	*/
+    ctxsw(&ptold->prstkptr, &ptnew->prstkptr);
 
-	/* Force context switch to highest priority ready process */
-	currpid = dequeue(readylist);
-	ptnew = &proctab[currpid];
-	ptnew->prstate = PR_CURR;
-	preempt = QUANTUM;		/* Reset time slice for process	*/
-	ctxsw(&ptold->prstkptr, &ptnew->prstkptr);
-
-	/* Old process returns here when resumed */
-	return;
+    /* Old process returns here when resumed */
+    return;
 }
 ```
 
@@ -100,13 +93,13 @@ ctxsw:
     push  xxx
     
     /* Move to new process stack */
-    movl	(%eax),%esp	/* Pop up new process's SP	*/
+    movl	(%eax),%esp
 
     /* lots of pop */
     pop
     pop
 
-    ret			/* Return to new process	*/
+    ret
 ```
 
 
