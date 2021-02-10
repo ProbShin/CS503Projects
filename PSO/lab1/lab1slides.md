@@ -35,8 +35,9 @@ reminder:
 ### 2. Context-Switch and `rescued()`
 
 
-![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
-
+* `clkhander.c`
+* `resched.c`
+* `ctxsw.S`
 
 
 ```text
@@ -48,6 +49,66 @@ process P1(){         |        process P2(){
   return OK;          |          return OK;
 }                     |        }
 ```
+
+![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
+
+```c
+void	clkhandler( int32	arg ) {
+  if((++count1000) >= 1000) {
+    clktime++;
+		count1000 = 0;
+	}
+
+	if((--preempt) <= 0) {
+		preempt = QUANTUM;
+		resched();
+	}
+}
+```
+
+```c
+void	resched(void) {
+	struct procent *ptold;	/* Ptr to table entry for old process	*/
+	struct procent *ptnew;	/* Ptr to table entry for new process	*/
+
+	ptold = &proctab[currpid];
+	if (ptold->prstate == PR_CURR) {  /* Process remains eligible */
+		if (ptold->prprio > firstkey(readylist)) {
+			return;
+		}
+		/* Old process will no longer remain current */
+		ptold->prstate = PR_READY;
+		insert(currpid, readylist, ptold->prprio);
+	}
+
+	/* Force context switch to highest priority ready process */
+	currpid = dequeue(readylist);
+	ptnew = &proctab[currpid];
+	ptnew->prstate = PR_CURR;
+	preempt = QUANTUM;		/* Reset time slice for process	*/
+	ctxsw(&ptold->prstkptr, &ptnew->prstkptr);
+
+	/* Old process returns here when resumed */
+	return;
+}
+```
+
+```asm
+ctxsw:
+    /* lots of push */
+    push  xxx
+    push  xxx
+    
+    /* Move to new process stack */
+    movl	(%eax),%esp	/* Pop up new process's SP	*/
+
+    /* lots of pop */
+    pop
+    pop
+
+    ret			/* Return to new process	*/
+```
+
 
 </br>
 </br>
