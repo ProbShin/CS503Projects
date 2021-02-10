@@ -203,7 +203,7 @@ This example shows that there are only **two process P5 and P4 which have priori
 
 ```
       |-----------------------|
-  4   |   10      |  q  |  5  |
+  4   |   10      |  5  |  q  |
       |-----------------------|
   5   |   20      | q+1 |  4  |
       |-----------------------|
