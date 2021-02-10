@@ -280,7 +280,10 @@ basic operations of double-linked-list.
   - demo how to download, read and execute.
   - under XINU
       read `system/main.c` and `system/fix16test.c`
-  i.e. to do `load_avg := (59/60) * load_avg + (1/60) * n_ready_processes` 
+  i.e. to do 
+  
+  `load_avg := (59/60) * load_avg + (1/60) * n_ready_processes` 
+
 ```
     int n_ready_processes = 3;
     fix16_t load_avg = fix16_from_int(0);
