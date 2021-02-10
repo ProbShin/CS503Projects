@@ -100,12 +100,12 @@ The XINU's readylist related implementations.
 
 ### 4. Queue
 
-```
-struct node {
-  short val;  //16bit
-  char qnext; // 8bit
-  char qprev; // 8bit
-}
+```text
+struct node {                       struct node {
+  short val;  //16bit                   int val;
+  char qnext; // 8bit       <=          struct node* next;
+  char qprev; // 8bit                   struct node* prev;
+}                                   }
 ```
 
 XINU's queue system. Pre-assigned space for a **Head** and a **Tail** for per queue using table to implement double-linked-list.
