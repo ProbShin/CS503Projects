@@ -101,6 +101,7 @@ The XINU's readylist related implementations.
 ### 4. Queue
 
 ```text
+// XINU Node                        // Common Node                 
 struct node {                       struct node {
   short val;  //16bit                   int val;
   char qnext; // 8bit       <=          struct node* next;
