@@ -235,6 +235,8 @@ p5 has priority 20
 ```
 
 </br>
+For lab1, implement your 'traverse', 'pop', 'push' functions to readylist.
+</br>
 </br>
 
 
