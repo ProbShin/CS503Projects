@@ -24,8 +24,8 @@ Index
 
 TA-note: 
 1. **Required**: Do **NOT** *define/initialize* new function or variables in `main.c`. Instead, you could *define/initialize* in the beginning of *initialized.c*, and *declare* them in *prototype.h*.
-1. **Recommended**: you can use `XDEBUG_KPRINTF` function for your own debug kprint purpose, use 'XTEST_KPRINTF' function for the handout specified kprint purpose. The definitions of the above functions are under *./include/process.h*
 1. **Required**: Sync your modification to Github server through `git add`, `git commit` and `git push` before the deadline. 
+1. **Recommended**: you can use `XDEBUG_KPRINTF` function for your own debug kprint purpose, use 'XTEST_KPRINTF' function for the handout specified kprint purpose. The definitions of the above functions are under *./include/process.h*
 </br>
 </br>
 
