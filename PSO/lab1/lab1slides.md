@@ -5,6 +5,7 @@ Index
 1. readylist and queue
 1. timer interrupt
 1. float-point operations, XINU and fixed-point library
+1. misc
 
 </br>
 </br>
@@ -21,10 +22,10 @@ Index
 [lab1 handout](https://www.cs.purdue.edu/homes/pfonseca/teaching/cs503/21spring/labs/lab1.html)
 
 
-reminder: 
+TA-note: 
 1. **Required**: Do **NOT** *define/initialize* new function or variables in `main.c`. Instead, you could *define/initialize* in the beginning of *initialized.c*, and *declare* them in *prototype.h*.
 1. **Recommended**: you can use `XDEBUG_KPRINTF` function for your own debug kprint purpose, use 'XTEST_KPRINTF' function for the handout specified kprint purpose. The definitions of the above functions are under *./include/process.h*
-
+1. **Required**: Sync your modification to Github server through `git add`, `git commit` and `git push` before the deadline. 
 </br>
 </br>
 
@@ -308,4 +309,15 @@ Materials
 </br>
 </br>
 
+-----------------------------------------
 
+</br>
+### 7. MISC
+
+`create()` function interface changed.
+Two function-call in `system/initialized.c`
+One function-call in `device/rds/rdsinit.c` line 26.     (maybe I should change `conf.c`)
+
+
+</br>
+</br>
