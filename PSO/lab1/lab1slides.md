@@ -75,6 +75,13 @@ void resched(void) {
         insert(currpid, readylist, ptold->prprio);
     }
 
+    
+    //Aging TODO
+    1. go over readylist, count number of process of each group.
+    2. update group priorities
+    3. decide which group policy you will use
+    
+
     /* pick up a process from readylist */
     currpid = dequeue(readylist);  // which policy is this
     ptnew = &proctab[currpid];
