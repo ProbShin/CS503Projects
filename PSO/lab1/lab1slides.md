@@ -314,9 +314,9 @@ Materials
 </br>
 ### 7. MISC
 
-`create()` function interface changed.
-Two function-call in `system/initialized.c`
-One function-call in `device/rds/rdsinit.c` line 26.     (maybe I should change `conf.c`)
+Issue about `create()` function interface
+* Two function-call in `system/initialized.c`
+* One function-call in `device/rds/rdsinit.c` line 26.     (maybe I should change `conf.c`)
 
 
 </br>
