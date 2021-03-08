@@ -89,7 +89,7 @@ for various number of arguments, "nargs" represents number of arguments. we can 
 
 i.e. 
 ```
-void fun(int nargs, int a1, int a2, int a3){
+void fun(int nargs, ...){
     va_list ap;
     va_start(ap, nargs);
     for(int i=0; i<nargs; i++){
