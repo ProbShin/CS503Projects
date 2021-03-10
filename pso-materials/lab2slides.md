@@ -105,7 +105,8 @@ process main(){
 </br>
 </br>
 </br>
-[process result](./lab2/lab2eg1.png)
+
+![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/pso-materials/lab2/lab2ex1.png)
 
 </br>
 </br>
