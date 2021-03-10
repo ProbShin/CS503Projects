@@ -84,7 +84,7 @@ Priority Inheritance (80pts)
 volatile int x=0;
 
 process p(){
-    for(int i=0; i<1,000,000; i++)
+    for(int i=0; i<1 000 000; i++)
         x++;
     return OK;
 }
@@ -105,7 +105,7 @@ process main(){
 </br>
 </br>
 </br>
-![process result](./lab2/lab2eg1.png)
+[process result](./lab2/lab2eg1.png)
 
 </br>
 </br>
@@ -198,7 +198,7 @@ Issues?
 ```c
 volatile int x=0;
 process p(sid32 s){
-    for(int i=0; i<1000,000; i++) {
+    for(int i=0; i<1 000 000; i++) {
         wait(s);
         x++;
         signal(s);
