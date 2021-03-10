@@ -80,10 +80,11 @@ process main(){
 </br>
 </br>
 reasons:
+
 1. multiple process do operation on a shared resources.
 1. the operation is not unit operation.
 
-steps:
+details:
 ```
 P1: read x=100 from memory into register.
 interrupt raise. P1 context switch to P2
@@ -99,7 +100,9 @@ P1: write the register value=101 into memory. **which overwrite the x value in m
 
 </br>
 </br> 
-How to solve it? Since the issue is caused by "resource-share". Shall we using a "lock" or "flag" show the **shareness**?
+How to solve it?
+
+ Since the issue is caused by "resource-share". Shall we using a "lock" or "flag" to indicate or control the **shareness**?
 
 
 
@@ -109,7 +112,7 @@ How to solve it? Since the issue is caused by "resource-share". Shall we using a
 ------------------------------------------
 </br>
 
-### xinu semaphore system
+### 3. xinu semaphore system
 
 * `semaphore.h`
 * `semacreate.c`
@@ -118,6 +121,7 @@ How to solve it? Since the issue is caused by "resource-share". Shall we using a
 * `semadelete.c`
 
 </br>
+
 `semaphore.h`
 ```c
 struct	sentry	{
@@ -128,6 +132,7 @@ struct	sentry	{
 };
 ```
 </br>
+
 `semacreate.c`
 ```c
 sid32	semcreate( int32 count ) {
@@ -159,34 +164,171 @@ syscall	wait( sid32 sem ) {
 
 `signal.c`
 ```c
+syscall	signal( sid32 sem ) {
+    ...
+	semptr= &semtab[sem];
+	...
+	if ((semptr->scount++) < 0) {	/* Release a waiting process */
+		ready(dequeue(semptr->squeue));
+	}
+    ...
+}
 
 ```
 
 
+`semadelete`
+```c
+syscall	semdelete( sid32 sem ) {
+    ...
+	semptr = &semtab[sem];
+	...
+    semptr->sstate = S_FREE;
 
-1. queue and semaphore queue
-1. lock and unlock
-1. variable number of arguments
+	resched_cntl(DEFER_START);  // <==
+	while (semptr->scount++ < 0) {	/* Free all waiting processes	*/
+		ready(getfirst(semptr->squeue));
+	}
+	resched_cntl(DEFER_STOP);  // <==
+    ...
+}
+```
 
-###3. fun(int nargs, ...);
+</br>
+</br>
 
-for various number of arguments, "nargs" represents number of arguments. we can use `va_arg` to the next argument.
+-----------------------
+
+</br>
+
+### 4. queue and semaphore queue
+
+</br>
+
+For xinu semaphore, the queue operations used are "insert, pop, peek".
+They are `enqueue()`, `dequeue()`, `getfirst()`
+
+
+```
+      |<--32bit-->|<8bit|8bit>|
+rowIdx|    Key    | nxt | pre |
+      |-----------------------|
+0     |           | nxt | pre |   -> 1st process
+      |-----------------------|
+1     |           | nxt | pre |   -> 2nd process
+              ...
+      |           |     |     |
+      |-----------------------|
+      |   10      | nxt | pre |
+      |-----------------------|
+      |   20      | nxt | pre |
+      |-----------------------|
+      |           |     |     |
+      |-----------------------|
+      |           |     |     |    -> NPROC process
+      |-----------------------|
+      |    Head   | nxt | pre |    \
+      |-----------------------|     |-> readylist
+      |    Tail   | nxt | pre |    /
+      |-----------------------|
+      |    Head   | nxt | pre |    \
+      |-----------------------|     |-> sleeplist
+      |    Tail   | nxt | pre |    /
+      |-----------------------|
+      |    Head   | nxt | pre |    \
+      |-----------------------|     |-> 1st semaphore queue
+      |    Tail   | nxt | pre |    /
+      |-----------------------|
+             ... 
+      |-----------------------|     
+      |    Head   | nxt | pre |    \
+      |-----------------------|     |-> NSEM semaphore queue
+      |    Tail   | nxt | pre |    /
+      |-----------------------|
+      |    Head   | nxt | pre |    \
+      |-----------------------|     |-> 1st lock queue
+      |    Tail   | nxt | pre |    /
+      |-----------------------|
+             ... 
+      |-----------------------|     
+      |    Head   | nxt | pre |    \
+      |-----------------------|     |-> NLOCKs lock queue
+      |    Tail   | nxt | pre |    /
+      |-----------------------|
+
+```
+</br>
+</br>
+
+----------------------
+
+</br>
+
+
+
+### 5. lock and unlock.
+</br>
+
+"lab2 lock" and "xinu semaphore" are similar but exists different. 
+
+* They both for control/indicate the "shareness" and maintanced by the OS.
+* read lock. write lock.
+* **priority heriatge method** to prevent **deadlock**.
+
+
+</br>
+</br>
+
+----------------------------------------
+</br>
+
+### 6. variable number of arguments fun(int nargs, ...);
+</br>
+
+for various number of arguments, "nargs" represents number of arguments. we can use `va_arg` to get the following argument.
 
 i.e. 
-```
+```c
 void fun(int nargs, ...){
     va_list ap;
     va_start(ap, nargs);
     for(int i=0; i<nargs; i++){
         int a = va_arg(ap, int);
-        kprintf("arg%d '%d'\n", i, a);
+        kprintf("arg%d is '%d'\n", i, a);
     }
     va_end(ap);
 }
 ```
 
+</br>
+</br>
 
-### 4. array
+-----------------------------------
+
+</br>
+
+### 7. hash-map v.s. link-list
+
+`process.h`
+```c
+struct procent{              |  struct procent {
+    ...                      |      ...
+    char HL[NLOCK];          |      struct youNode* p;
+    ...                      |      ...
+}                            |  }
+```
+
+`lock.h`
+```c
+struct locent{               |  struct locent {
+    ...                      |      ...
+    char HP[NPROC];          |      struct youNode* p;
+    ...                      |      ...
+}                            |  }
+```
+
+
+</br>
 
 
 
