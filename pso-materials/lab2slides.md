@@ -344,7 +344,7 @@ They are `enqueue()`, `dequeue()`, `getfirst()`
 
 
 ```
-      |<--32bit-->|<8bit|8bit>|
+      |<--32bit-->|<16bt|16bt>|
 rowIdx|    Key    | nxt | pre |
       |-----------------------|
 0     |           | nxt | pre |   -> 1st process
