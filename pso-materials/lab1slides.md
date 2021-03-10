@@ -51,7 +51,7 @@ process P1(){         |        process P2(){
 }                     |        }
 ```
 
-![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/PSO/lab1/img1.png)
+![processes ctxsw example](https://raw.githubusercontent.com/ProbShin/myCS503ProjectsRepo/main/pso-materials/lab1/img1.png)
 
 ```c
 void clkhandler(..) {
