@@ -95,7 +95,7 @@ process main(){
     resume(create (p, 1024, 100, "p2", 0));  //process p2
     resched_cntl(DEFER_STOP);
     
-    kprintf("x=%d",x);
+    kprintf("x=%d expect %d",x, 2 000 000);
     return OK;
 }
 
