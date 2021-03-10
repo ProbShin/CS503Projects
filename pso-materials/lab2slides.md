@@ -154,11 +154,15 @@ int test_and_set(lock):
     return lock;
 
 int x=0
-int some_job_function():
-    while ( test_and_set( lock ) == 1 )
-        ;
-    x++;        // job on the global resources 
-    lock = 0 ;  // unset the lock
+int same_process(){
+    for(int i=0; i<1 000 000; i++) {
+         while ( test_and_set( lock ) == 1 )
+             ;
+    	 x++;        // job on the global resources 
+         lock = 0 ;  // unset the lock
+    }
+    return 0;
+}
 ```
 
 </br>
