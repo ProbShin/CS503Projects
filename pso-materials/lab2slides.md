@@ -195,14 +195,15 @@ Issues?
 </br>
 
 
-*The same example with xinu semaphore*
+For XINU, it already provide the semaphore system ready to use. 
+Here is the usage of the same example
 ```c
 volatile int x=0;
 process p(sid32 s){
     for(int i=0; i<1 000 000; i++) {
-        wait(s);
+        wait(s);    // <--  
         x++;
-        signal(s);
+        signal(s);  // <--
     }
     return OK;
 }
@@ -210,7 +211,7 @@ process p(sid32 s){
 process main(){
     sid32 s = semcreate(1);
 
-    resched_cntl(DEFER_START);
+    resched_cntl(DEFER_START); 
     resume(create (p, 1024, 100, "p1", 1, s));  //process p1
     resume(create (p, 1024, 100, "p2", 1, s));  //process p2
     resched_cntl(DEFER_STOP);
