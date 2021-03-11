@@ -488,7 +488,7 @@ For *priority heritage* part:
 ```c
 struct procent{              |  struct procent {
     ...                      |      ...
-    struct youNode* Head;    |      char L[NLOCK]; 
+    struct youNode* Head;    |      char LSomeName[NLOCK]; 
     ...                      |      ...
 }                            |  }
 ```
@@ -497,7 +497,7 @@ struct procent{              |  struct procent {
 ```c
 struct locent{               |  struct locent {
     ...                      |      ...
-    struct youNode* Head;       |      char P[NPROC];
+    struct youNode* Head;       |      char PSomeName[NPROC];
     ...                      |      ...
 }                            |  }
 ```
