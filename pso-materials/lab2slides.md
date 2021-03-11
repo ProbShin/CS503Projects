@@ -420,6 +420,7 @@ The lab2 asks you to create a ***new*** *semaphore system* from scratch called *
 Advantages:
 * read lock, write lock.
 * **priority heriatge method** to prevent **deadlock**.
+* bug free.
 
 </br>
 </br>
