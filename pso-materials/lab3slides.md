@@ -101,21 +101,36 @@ Function call case:
 ```
 int fun(int a1, int a2){
   int y=a1+a2;
-  return y;
+  return y; 
 }
 
 int main(){
    int x=0;
    x++;
    fun1(3,5);
-   x=5;
+   x=5;   //<- this is the return address pushed to the stack
    return;
 }
 
 ```
 
+```asm
 
+main: 
+   pushl $5
+   pushl $3
+   call fun1. // push the eip, jmp to fun1
+   ret    // pop the eip from the stack top
 
+```
+xxx
+xxx
+0x0014 :
+0x0010 :   x
+0x000c :   5
+0x0008 :   3
+0x0004 :  0xabcdef
+0x0000 :
 
 </br>
 </br>
