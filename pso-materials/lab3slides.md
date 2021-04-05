@@ -75,6 +75,8 @@ Create a new system call that dynamically loads a program (60 pts)
 
 ### 2. In memory file system
 
+allocate a chunk of memory to store the input arguments.
+
 </br>
 </br>
 </br>
@@ -84,7 +86,62 @@ Create a new system call that dynamically loads a program (60 pts)
 </br>
 </br>
 
-### 3. interrupt system
+### 3. interrupt system and function argument
+
+Some useful files.
+* evec.c
+* intra.S
+
+</br>
+</br>
+</br>
+</br>
+
+Function call case:
+```
+int fun(int a1, int a2){
+  int y=a1+a2;
+  return y;
+}
+
+int main(){
+   int x=0;
+   x++;
+   fun1(3,5);
+   x=5;
+   return;
+}
+
+```
+
+
+
+
+</br>
+</br>
+</br>
+</br>
+
+Interrupt case:
+```
+int fun(int a1, int a2){
+  int y=a1+a2;
+  return y;
+}
+
+int main(){
+   int x=0;
+   x++;
+   // an interrupt happens here. i.e. asm("int $0x80");
+   x=5;
+   return;
+}
+
+```
+
+
+
+
 
 
 </br>
@@ -99,8 +156,11 @@ Create a new system call that dynamically loads a program (60 pts)
 </br>
 
 
-### 4. asm function, inline asm and function arguments
+### 4. asm function, inline asm 
 
+some examples.
+ctxsw.S
+syscall_interface.c
 
 </br>
 </br>
