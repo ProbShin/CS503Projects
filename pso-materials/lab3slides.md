@@ -123,6 +123,8 @@ main:
    ret    // pop the eip from the stack top
 
 ```
+
+```
 xxx
 xxx
 0x0014 :
@@ -131,7 +133,7 @@ xxx
 0x0008 :   3
 0x0004 :  0xabcdef
 0x0000 :
-
+```
 </br>
 </br>
 </br>
@@ -155,6 +157,29 @@ int main(){
 ```
 
 
+```asm
+
+main: 
+   pushl $5
+   pushl $3
+   int %0x80 // push flag, push the eip, jmp to fun1
+   ret    // pop the eip from the stack top
+
+```
+
+```
+xxx
+xxx
+0x0014 :
+0x0010 :   x
+0x000c :   5
+0x0008 :   3
+0x0004 :  Flag-xxxxxx
+0x0000 :  0xabcdef
+
+```
+
+```
 
 
 
