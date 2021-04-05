@@ -75,12 +75,23 @@ Create a new system call that dynamically loads a program (60 pts)
 
 ### 2. In memory file system
 
+</br>
+</br>
+</br>
+
 ------------------------------------------
 </br>
 </br>
 </br>
 
 ### 3. interrupt system
+
+
+</br>
+</br>
+</br>
+
+
 
 ------------------------------------------
 </br>
@@ -90,12 +101,28 @@ Create a new system call that dynamically loads a program (60 pts)
 
 ### 4. asm function, inline asm and function arguments
 
+
+</br>
+</br>
+</br>
+
+
+
+
 ------------------------------------------
 </br>
 </br>
 </br>
 
 ### 5. caller callee convention
+
+
+</br>
+</br>
+</br>
+
+
+
 
 ------------------------------------------
 </br>
@@ -104,12 +131,28 @@ Create a new system call that dynamically loads a program (60 pts)
 
 ### 6. return values
 
+
+</br>
+</br>
+</br>
+
+
+
+
 ------------------------------------------
 </br>
 </br>
 </br>
 
 ### 7. elf system
+
+
+</br>
+</br>
+</br>
+
+
+
 
 ------------------------------------------
 </br>
