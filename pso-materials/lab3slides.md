@@ -165,13 +165,22 @@ It depends.
 </br>
 </br>
 </br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 
 ------------------------------------------
 </br>
 </br>
 </br>
 
-### 3. Interrupt system and Function argument
+### 3. Interrupt system and argument in stack
 </br>
 </br>
 </br>
@@ -319,16 +328,20 @@ fun1:
     movl 8(%ebp), %eax   
     addl 12(%ebp), %eax  # 3 + 5
 
+    # ...
+
     movl %ebp, %esp
     pop %ebp
     ret 
 ```
 ```c
-int main(){
-   ..
-   fun1(3,5);
-   ..
-}
+int main(){        |  main:
+   ..              |     .. 
+   fun1(3,5);      |     pushl 5
+                   |     pushl 3
+                   |     call fun1
+   ..              |     ..
+}                  |     ret
 ```
 
 
@@ -336,83 +349,166 @@ int main(){
 ebp points to main's stack base.
 esp points to main's stack top.
 ```
+   ...
 |--------|  0x00FFFF
-|--------|
-|--------| 
 |        |
-|--------|  <--- ebp (main) 
+|--------|  <-- ebp   //0x00FF48   (main stk base)
 |        |  
-|--------|  <--- esp (main)
+|--------|  <-- esp 
 |        |
-|--------| 
 |        |
-|--------| 
-|--------|   0x00FF00
-|--------|
+|--------|  0x00FF00
+    ...
 ```
 
 
-after `pushl 5`
+ `pushl 5`
 
 ```
 |--------|  0x00FFFF
-|--------|
 |        |
-|--------|  <--- ebp (main) 
+|--------|  <--- ebp   //0x00FF48 (main stk base)
 |        |  
 |--------|  
 |   5    |  <--- esp 
-|--------| 
 |        |
-|--------| 
-|--------|   0x00FF00
-|--------|
+|        |
+|--------|  0x00FF00
 ```
 
-after `push 3`
-
-
-
+ `push 3`
 
 ```
 |--------|  0x00FFFF
-|--------|
 |        |
-|--------|  <--- ebp (main)   //0x00FF45
+|--------|  <--- ebp   //0x00FF48 (main stk base)
+|        |  
+|--------|
+|   5    | 
+|   3    |  <--- esp 
+|        |
+|--------|  0x00FF00
+```
+
+ `call fun1`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|  <--- ebp   //0x00FF48 (main stk base)   
 |        |  
 |--------|  
 |   5    | 
 |   3    | 
-|0xabcdef| 
-|0x00ff45|
+|0xabcdef|  <--- esp   //0x00FF28
+|        |
 |        | 
 |--------|   0x00FF00
-|--------|
+```
+
+`push %ebp`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|  <--- ebp   //0x00FF48 (main stk base) 
+|        |  
+|--------|  
+|   5    | 
+|   3    | 
+|0xabcdef|             //0x00FF28
+|0x00ff48|  <--- esp   //0x00FF24     
+|        |              
+|        |             
+|--------|   0x00FF00
+```
+
+`movl %esp, %ebp`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|              //0x00FF48 (main stk base)
+|        |  
+|--------|  
+|   5    | 
+|   3    | 
+|0xabcdef|              //0x00FF28
+|0x00ff48|  <--esp, ebp //0x00FF24 (fun1 stk base)   
+|        |              
+|        |              
+|--------|   0x00FF00
+```
+
+assume afte `fun1` runs a while.
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|              //0x00FF48
+|        |  
+|--------|  
+|   5    | 
+|   3    | 
+|0xabcdef|              //0x00FF28
+|0x00ff48|  <-- ebp     //0x00FF24     
+|   ...  |
+|        |  <-- esp                      
+|        |   
+|--------|  0x00FF00
 ```
 
 
-
-
-```asm
-
-main: 
-   pushl $5
-   pushl $3
-   call fun1. // push the eip, jmp to fun1
-   ret    // pop the eip from the stack top
+`movl %ebp, %esp`
 
 ```
+|--------|  0x00FFFF
+|        |
+|--------|              //0x00FF48
+|        |  
+|--------|  
+|   5    | 
+|   3    | 
+|0xabcdef|              //0x00FF28
+|0x00ff48|  <-- ebp,esp //0x00FF24     
+|        |
+|        |  
+|--------|  0x00FF00
+```
+
+
+`pop %ebp`
 
 ```
-xxx
-xxx
-0x0014 :
-0x0010 :   x
-0x000c :   5
-0x0008 :   3
-0x0004 :  0xabcdef
-0x0000 :
+|--------|  0x00FFFF
+|        |
+|--------|  <-- ebp     //0x00FF48
+|        |  
+|--------|  
+|   5    | 
+|   3    | 
+|0xabcdef|  <-- esp     //0x00FF28
+|        |       
+|        |  
+|--------|  0x00FF00
 ```
+
+`ret`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|  <-- ebp     //0x00FF48
+|        |  
+|--------|  
+|   5    | 
+|   3    |  <-- esp
+|        |       
+|        |  
+|--------|  0x00FF00
+```
+
+
 </br>
 </br>
 </br>
@@ -420,45 +516,160 @@ xxx
 
 Interrupt case:
 ```
-int fun(int a1, int a2){
-  int y=a1+a2;
-  return y;
-}
+_Xint0:
+    pushl %ebp
+    movl  %esp, %ebp
+    ..
+    movl  %ebp, %esp
+    popl  %ebp
+    iret
 
 int main(){
-   int x=0;
-   x++;
-   // an interrupt happens here. i.e. asm("int $0x80");
-   x=5;
+   ..
+   x/0    
+   ..
    return;
 }
 
 ```
 
 
-```asm
-
-main: 
-   pushl $5
-   pushl $3
-   int %0x80 // push flag, push the eip, jmp to fun1
-   ret    // pop the eip from the stack top
-
+```
+   ...
+|--------|  0x00FFFF
+|        |
+|--------|  <-- ebp   //0x00FF48   (main stk base)
+|        |  
+|--------|  <-- esp 
+|        |
+|        |
+|--------|  0x00FF00
+    ...
 ```
 
-```
-xxx
-xxx
-0x0014 :
-0x0010 :   x
-0x000c :   5
-0x0008 :   3
-0x0004 :  Flag-xxxxxx
-0x0000 :  0xabcdef
+
+ `x/0` to `_Xint0`
 
 ```
+|--------|  0x00FFFF
+|        |
+|--------|  <--- ebp  //0x00FF48 (main stk base)   
+|        |  
+|--------| 
+|  EFLAG | 
+|  CS    |
+|0xabcdef|  <--- esp  //0x00FF28
+|        |
+|        | 
+|--------|   0x00FF00
+```
+
+`pusb %ebp`
 
 ```
+|--------|  0x00FFFF
+|        |
+|--------|  <--- ebp   //0x00FF48 (main stk base) 
+|        |  
+|--------|  
+|  EFLAG | 
+|  CS    | 
+|0xabcdef|             //0x00FF28
+|0x00ff48|  <--- esp   //0x00FF24     
+|        |              
+|        |             
+|--------|   0x00FF00
+```
+
+`movl %esp, %ebp`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|              //0x00FF48 (main stk base)
+|        |  
+|--------|  
+|  EFLAG | 
+|  CS    | 
+|0xabcdef|              //0x00FF28
+|0x00ff48|  <--esp, ebp //0x00FF24 (_Xin0 stk base)   
+|        |              
+|        |              
+|--------|   0x00FF00
+```
+
+
+
+[Q] How to get the first argument if there is any?
+
+
+
+before `_Xint0` return.
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|              //0x00FF48
+|        |  
+|--------|  
+|  EFLAG | 
+|  CS    | 
+|0xabcdef|              //0x00FF28
+|0x00ff48|  <-- ebp     //0x00FF24     
+|   ...  |
+|        |  <-- esp                      
+|        |   
+|--------|  0x00FF00
+```
+
+
+`movl %ebp, %esp`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|              //0x00FF48
+|        |  
+|--------|  
+|  EFLAG | 
+|  CS    | 
+|0xabcdef|              //0x00FF28
+|0x00ff48|  <-- ebp,esp//0x00FF24     
+|        | 
+|        |  
+|--------|  0x00FF00
+```
+
+
+`pop %ebp`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|  <-- ebp     //0x00FF48
+|        |  
+|--------|  
+|  EFLAG | 
+|  CS    | 
+|0xabcdef|  <-- esp     //0x00FF28
+|        |       
+|        |  
+|--------|  0x00FF00
+```
+
+`iret`
+
+```
+|--------|  0x00FFFF
+|        |
+|--------|  <-- ebp     //0x00FF48
+|        |  
+|--------|  <-- esp
+|        |       
+|        |  
+|--------|  0x00FF00
+```
+
 
 
 
@@ -466,7 +677,6 @@ xxx
 </br>
 </br>
 </br>
-
 
 
 ------------------------------------------
@@ -478,8 +688,19 @@ xxx
 ### 4. asm function, inline asm 
 
 some examples.
-ctxsw.S
-syscall_interface.c
+1. ctxsw.S
+2. syscall_interface.c
+
+`pushal` and `popal` push and pop the following 8 registers on and from the stack.
+"EAX,EBX,ECX,EDX,ESP,EBP,ESI,EDI"
+
+
+```
+//syscall_interface.c
+
+
+```
+
 
 </br>
 </br>
@@ -494,8 +715,11 @@ syscall_interface.c
 </br>
 
 ### 5. caller callee convention
+in human language:  
+"
+A convention that some registers callee can directly use (modify, dirty) without backup-ahead-restore-before-ret. While some of the registers callee must make sure when return, the value is remain the same. 
 
-
+With that convention, the caller knows he need to back up some of the registers that callee might use. And knows that some registers values might be changed after a function call. "
 </br>
 </br>
 </br>
@@ -508,8 +732,17 @@ syscall_interface.c
 </br>
 </br>
 
-### 6. return values
+### 6. Return values
 
+eax store the integer returned values.
+
+</br>
+</br>
+</br>
+
+</br>
+</br>
+</br>
 
 </br>
 </br>
@@ -524,8 +757,101 @@ syscall_interface.c
 </br>
 
 ### 7. elf system
+Materials need to read
+* [How To Write Shared Libraries](https://akkadia.org/drepper/dsohowto.pdf)”
+* [Essays on loaders and linkers by Lance Taylor](http://a3f.at/lists/linkers)”
+* [ELF hello world](https://cirosantilli.com/elf-hello-world)
+* [ELF format specification](https://refspecs.linuxbase.org/elf/elf.pdf)
 
+* sample_loader.c
 
+<!--
+```c
+void *image_load (char *elf_start, unsigned int size)
+{
+    Elf32_Ehdr      *hdr     = NULL;
+    Elf32_Phdr      *phdr    = NULL;
+    Elf32_Shdr      *shdr    = NULL;
+    Elf32_Sym       *syms    = NULL;
+    char            *strings = NULL;
+    char            *start   = NULL;
+    char            *taddr   = NULL;
+    void            *entry   = NULL;
+    int i = 0;
+    char *exec = NULL;
+    hdr = (Elf32_Ehdr *) elf_start;
+    if(!is_image_valid(hdr)) {
+        printk("image_load:: invalid ELF image\n");
+        return 0;
+    }
+    exec = mmap(NULL, size, PROT_READ | PROT_WRITE | PROT_EXEC,
+                      MAP_PRIVATE | MAP_ANONYMOUS, 0, 0);
+    if(!exec) {
+        printk("image_load:: error allocating memory\n");
+        return 0;
+    }
+    // Start with clean memory.
+    memset(exec,0x0,size);
+    phdr = (Elf32_Phdr *)(elf_start + hdr->e_phoff);
+    for(i=0; i < hdr->e_phnum; ++i) {
+            if(phdr[i].p_type != PT_LOAD) {
+                    continue;
+            }
+            if(phdr[i].p_filesz > phdr[i].p_memsz) {
+                    printk("image_load:: p_filesz > p_memsz\n");
+                    munmap(exec, size);
+                    return 0;
+            }
+            if(!phdr[i].p_filesz) {
+                    continue;
+            }
+            // p_filesz can be smaller than p_memsz,
+            // the difference is zeroe'd out.
+            start = elf_start + phdr[i].p_offset;
+            taddr = phdr[i].p_vaddr + exec;
+            memmove(taddr,start,phdr[i].p_filesz);
+            if(!(phdr[i].p_flags & PF_W)) {
+                    // Read-only.
+                    mprotect((unsigned char *) taddr,
+                              phdr[i].p_memsz,
+                              PROT_READ);
+            }
+            if(phdr[i].p_flags & PF_X) {
+                    // Executable.
+                    mprotect((unsigned char *) taddr,
+                            phdr[i].p_memsz,
+                            PROT_EXEC);
+            }
+    }
+    shdr = (Elf32_Shdr *)(elf_start + hdr->e_shoff);
+    for(i=0; i < hdr->e_shnum; ++i) {
+        if (shdr[i].sh_type == SHT_DYNSYM) {
+            syms = (Elf32_Sym*)(elf_start + shdr[i].sh_offset);
+            strings = elf_start + shdr[shdr[i].sh_link].sh_offset;
+            entry = find_sym("main", shdr + i, strings, elf_start, exec);
+            break;
+        }
+    }
+    for(i=0; i < hdr->e_shnum; ++i) {
+        if (shdr[i].sh_type == SHT_REL) {
+            relocate(shdr + i, syms, strings, elf_start, exec);
+        }
+    }
+   return entry;
+}// image_load 
+
+```
+
+-->
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 </br>
 </br>
 </br>
@@ -538,5 +864,58 @@ syscall_interface.c
 </br>
 </br>
 
+
+
+
+### Generate the elf files
+
+**[Q]** How to transer my own hello.c to elf form?
+
+```gcc -m32 -march=i586 -fno-builtin -fPIE -pie -fno-stack-protector -Wall -nostdlib -z max-page-size=4096 -O0 -DBSDURG -o ./hello.elf ./hello.c ./needed.o```
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+------------------------------------------
+</br>
+</br>
+</br>
+</br>
+</br>
+
+bonus:
+
+1. kprintf the address that get from getmem
+
+
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+------------------------------------------
+</br>
+</br>
+</br>
+</br>
+</br>
+
+bonus:
+
+
+2. asm print for debug
 
 
