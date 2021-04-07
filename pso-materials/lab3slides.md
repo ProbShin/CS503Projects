@@ -84,19 +84,63 @@ Index
 </br>
 
 
-### 2. In memory file system
+### 2. Memory system
 
 * memory.h
 * getmem.c
 * freemem.c
 
-linklist, semaphore
+```
+// at very begining
+0x00
+|------------------------------------------------|
+|                                                |
+|------------------------------------------------|
+
+// allocate memory 
+     x                         f
+|------------------|-----------------------------|
+|                  |                             |
+|------------------|-----------------------------|
+
+
+// free memory
+    f           x               f  
+|------------|-----|------------------------------|
+|            |     |                              |
+|------------|-----|------------------------------|
+
+^     ^      ^     ^           ^                  ^
+beg   len   end    beg        len               end
+```
+
+
+```c
+// memory.h
+struct	memblk	{			
+	struct	memblk	*mnext;		/* Ptr to next free memory blk	*/
+	uint32	mlength;		/* Size of blk (includes memblk)*/
+};
+```
 
 </br>
 
-* How does XINU implment memory system's link list?
+A trival thing about 
+* getstk
+* freestk
 
-* How to implement a link list for general purpose?
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+For lab3  
+**[Q]**  How to implement a link list for general purpose?
 
 ```plain-text
 struct Node {                                  |    struct Node {
@@ -110,7 +154,12 @@ struct Node* n2 = new struct Node();           |    struct Node* n2 = getmem( si
 n1->nxt = n2;                                  |    n1->nxt = n2;
 ```
 
+</br>
+</br>
+</br>
 
+**[Q]** do we need to use semaphar?  
+It depends.
 
 
 </br>
