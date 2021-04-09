@@ -92,7 +92,7 @@ Index
 
 ```
 // at very begining
-0x00
+0x0                                        0xffffffff
 |------------------------------------------------|
 |                                                |
 |------------------------------------------------|
@@ -114,6 +114,8 @@ Index
 beg   len   end    beg        len               end
 ```
 
+</br>
+</br>
 
 ```c
 // memory.h
@@ -159,7 +161,7 @@ n1->nxt = n2;                                  |    n1->nxt = n2;
 </br>
 
 **[Q]** do we need to use semaphar?  
-It depends.
+It is not necessaray. And depend on your design.
 
 
 </br>
@@ -334,6 +336,7 @@ fun1:
     pop %ebp
     ret 
 ```
+
 ```c
 int main(){        |  main:
    ..              |     .. 
@@ -526,7 +529,7 @@ _Xint0:
 
 int main(){
    ..
-   x/0    
+   x/0;  // or asm("int 0");    
    ..
    return;
 }
@@ -609,13 +612,13 @@ before `_Xint0` return.
 ```
 |--------|  0x00FFFF
 |        |
-|--------|              //0x00FF48
+|--------|              //0x00FF48 (main stk)
 |        |  
 |--------|  
 |  EFLAG | 
 |  CS    | 
 |0xabcdef|              //0x00FF28
-|0x00ff48|  <-- ebp     //0x00FF24     
+|0x00ff48|  <-- ebp     //0x00FF24 (_Xint0 stk)    
 |   ...  |
 |        |  <-- esp                      
 |        |   
@@ -628,13 +631,13 @@ before `_Xint0` return.
 ```
 |--------|  0x00FFFF
 |        |
-|--------|              //0x00FF48
+|--------|              //0x00FF48 (Main stk)
 |        |  
 |--------|  
 |  EFLAG | 
 |  CS    | 
 |0xabcdef|              //0x00FF28
-|0x00ff48|  <-- ebp,esp//0x00FF24     
+|0x00ff48|  <-- ebp,esp //0x00FF24 (Xint0 stk)     
 |        | 
 |        |  
 |--------|  0x00FF00
@@ -646,12 +649,12 @@ before `_Xint0` return.
 ```
 |--------|  0x00FFFF
 |        |
-|--------|  <-- ebp     //0x00FF48
+|--------|  <-- ebp     //0x00FF48 (main stk)
 |        |  
 |--------|  
 |  EFLAG | 
 |  CS    | 
-|0xabcdef|  <-- esp     //0x00FF28
+|0xabcdef|  <-- esp     //0x00FF28 (return address)
 |        |       
 |        |  
 |--------|  0x00FF00
@@ -662,7 +665,7 @@ before `_Xint0` return.
 ```
 |--------|  0x00FFFF
 |        |
-|--------|  <-- ebp     //0x00FF48
+|--------|  <-- ebp     //0x00FF48 (main stk)
 |        |  
 |--------|  <-- esp
 |        |       
